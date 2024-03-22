@@ -11,5 +11,6 @@ modified-and-downstream:
 	dbt run -s state:modified+ --state ./target
 
 docs:
+	dbt compile
 	dbt docs generate
 	dbt docs serve
