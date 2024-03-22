@@ -1,0 +1,33 @@
+{
+  "name": "peter-dataproduct_devcontainer",
+  "build": { "dockerfile": "Dockerfile" },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        
+          "terminal.integrated.defaultProfile.linux#": "/bin/bash",
+          "python.pythonPath": "/poetry/venvs/bin/python3",
+          "python.defaultInterpreterPath": "/poetry/venvs/bin/python3",
+          
+        "files.associations": {
+          "*.yaml": "jinja-yaml",
+          "*.yml": "jinja-yaml",
+          "*.sql": "jinja-sql",
+          "*.md": "jinja-md"
+        }
+      },
+      "extensions": [
+        "astienboutonnet.vscode-dbt",
+        "innoverio.vscode-dbt-power-user",
+        "samuelcolvin.jinjahtml"
+      ]
+    }
+  },
+  "forwardPorts": [3000, 8080],
+  
+  "workspaceFolder": "/workspaces/dbt-gcp-demo",
+  "mounts": [
+    "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached",
+  ],
+  "postAttachCommand": "/workspaces/dbt-gcp-demo/src/post-devenv-start.sh"
+}

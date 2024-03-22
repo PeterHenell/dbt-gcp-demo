@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: parks_n_squirrels
+    database: peter-dbt-demo  
+    schema: bronze
+    tables:
+      - name: squirrels
+      - name: parks

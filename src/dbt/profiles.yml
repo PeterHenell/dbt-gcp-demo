@@ -1,0 +1,10 @@
+dbtprof:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: "{{ env_var('gcp_project_id') }}"
+      dataset: raw
+      threads: 4
+      location: europe-west1
