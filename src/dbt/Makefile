@@ -10,6 +10,9 @@ modified:
 modified-and-downstream:
 	dbt run -s state:modified+ --state ./target
 
+test:
+	dbt test
+
 docs:
 	dbt compile
 	dbt docs generate

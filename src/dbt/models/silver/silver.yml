@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: silver__squirrel
+    tests:
+        - dbt_expectations.expect_table_row_count_to_equal_other_table:
+                compare_model: source('parks_n_squirrels', 'squirrels')
+    columns:
+      - name: squirrel_id
+        tests:
+          - unique
+          - not_null
+
+
+  - name: silver__colors
+    columns:
+      - name: color_name
+        tests:
+          - unique
+          - not_null
+
